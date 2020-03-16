@@ -1,0 +1,42 @@
+ For each bug you are tracking down: 
+ 	1. Name the failed test where you are beginning your hunt
+ 	2. Where you placed breakpoints
+ 	3. Where the bug was found
+ 	4. What you did to fix it
+ 	5. How you recognized the bug
+ 	
+ Bug #1:
+ 	1. emptySet_testIsEmpty
+ 	2. SetTester Line 101: Calls testIsEmpty() method
+ 	3. The bug was found in the isEmpty() method in ArraySet
+ 	4. I changed the return statement from 
+ 			"return (rear > 0);" to 
+ 			"return (rear == 0);" 
+		so it would return "true" if the set is empty and "false" if it is not empty.
+	5. I recognized the bug when the result variable in the SetTester.testIsEmpty() method 
+		was set to false and the expected result was supposed to be true.
+		
+ Bug #2:
+ 	1. emptySet_addA_A_testIsEmpty
+ 	2. SetTester Line 136: Calls testIsEmpty() method
+ 	3. The bug was found in the add() method in ArraySet
+ 	4. I added a statement to update the rear variable when an element is added to the set.
+ 	5. I recognized the bug when the rear variable, which keeps track of the size of the set,
+ 		was not updating when an element was added.
+ 		
+ Bug #3:
+ 	1. A_addB_AB_testRemoveA
+ 	2. SetTester Line 259: Calls testRemove() method
+ 	3. The bug was found in the remove() method in ArraySet
+ 	4. I changed the while statement in ArraySet.remove() method from 
+ 			"while (i < rear)" to
+ 			"while (i < rear - 1)"
+ 		so the array index would stay inbounds.
+ 	5. I recognized the bug when a ArrayIndexOutOfBoundsException was thrown.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
